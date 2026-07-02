@@ -1,4 +1,4 @@
-# AtheroBurden proteomic signatures
+# Proteomic Signatures as Biomarkers of Atherosclerosis Burden
 
 This repository contains the analysis code for our study on proteomic
 signatures as biomarkers of atherosclerosis burden. The code supports model
