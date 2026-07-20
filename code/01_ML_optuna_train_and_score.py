@@ -12,10 +12,7 @@ What it does:
 5. Refit CatBoost on the training set and export CatBoost raw/z scores.
 
 Final downstream score:
-  CatBoost RawFormulaVal, not probability.
-
-How to run:
-  cd atheroburden-code-release
+  CatBoost RawFormulaVal.
 
   # Arterial-enriched panel, 248 proteins
   python code/01_ML_optuna_train_and_score.py \
