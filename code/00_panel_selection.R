@@ -1,8 +1,6 @@
 # Protein panel selection for AtheroBurden signatures.
 #
 # This script contains the panel-selection steps used before model training.
-# It starts from public/summary-level or anonymous analysis-ready files and
-# does not include individual-level raw data processing.
 #
 # Notes for the two panels not recalculated here:
 # - Whole Proteome Panel: no prior feature selection was applied. All 2,920
