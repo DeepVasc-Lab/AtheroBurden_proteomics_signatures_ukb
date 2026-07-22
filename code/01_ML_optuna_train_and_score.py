@@ -11,7 +11,7 @@ What it does:
 4. Evaluate all tuned classifiers on the held-out test set.
 5. Refit CatBoost on the training set and export CatBoost raw/z scores.
 
-Final downstream score:
+Final downstream signature:
   CatBoost RawFormulaVal.
 
   # Arterial-enriched panel, 248 proteins
