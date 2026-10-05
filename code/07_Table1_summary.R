@@ -56,19 +56,6 @@ tab_eth <- make_cat_block(cov_add, "ethnicity",
 colnames(rm_FAS_new_PSM_index)[1] = "eid_b"
 discovery_data = rm_FAS_new_PSM_index[,c(1,2)]
 
-map_b_to_151 <- bridge %>%
-  distinct(eid_b, eid_m) %>%
-  left_join(bridge_new %>% distinct(eid_m, eid_151281),
-            by = "eid_m")
-
-
-discovery_data <- discovery_data %>%
-  left_join(map_b_to_151, by = "eid_b")
-discovery_data <- discovery_data %>%
-  mutate(eid_151281 = as.numeric(eid_151281)) %>%
-  left_join(cov_add, by = "eid_151281")
-table(discovery_data$group, useNA = "ifany")
-library(dplyr)
 
 discovery_data <- discovery_data %>%
   mutate(
@@ -340,19 +327,6 @@ write.csv(tab_add, "Table_add_eth_fh_drink_byMACE.csv", row.names = FALSE)
 
 colnames(score_plaque_cli)[1] = "eid_b"
 score_plaque_cli = score_plaque_cli[,c(1,5)]
-
-map_b_to_151 <- bridge %>%
-  distinct(eid_b, eid_m) %>%
-  left_join(bridge_new %>% distinct(eid_m, eid_151281),
-            by = "eid_m")
-
-
-score_plaque_cli <- score_plaque_cli %>%
-  left_join(map_b_to_151, by = "eid_b")
-score_plaque_cli <- score_plaque_cli %>%
-  mutate(eid_151281 = as.numeric(eid_151281)) %>%
-  left_join(cov_add, by = "eid_151281")
-head(score_plaque_cli)
 
 library(dplyr)
 library(tidyr)
