@@ -13,24 +13,8 @@
 #   clinical covariates used in adjusted models.
 # - Current_smoke, Current_drink, Unknown_drink, fh_cvd:
 #   smoking, drinking, and family-history covariates.
-
 score_plaque_cli = fread('data/score_plaque_cli.csv',data.table = F)
-colnames(score_plaque_cli)[1] = "eid_b"
 head(score_plaque_cli)
-
-map_b_to_151 <- bridge %>%
-  distinct(eid_b, eid_m) %>%
-  left_join(bridge_new %>% distinct(eid_m, eid_151281),
-            by = "eid_m")
-score_plaque_cli <- score_plaque_cli %>%
-  left_join(map_b_to_151, by = "eid_b")
-score_plaque_cli <- score_plaque_cli %>%
-  mutate(eid_151281 = as.numeric(eid_151281)) %>%
-  left_join(cov_add, by = "eid_151281")
-head(score_plaque_cli)
-
-
-
 library(dplyr)
 library(purrr)
 library(sandwich)
