@@ -1,21 +1,5 @@
 olink = fread("data/OlinkNDimpute.csv",data.table = F)
-colnames(olink)[1] = "eid_b"
-olink_44788 = olink[,c(1,2)]
 
-map_b_to_151 <- bridge %>%
-  distinct(eid_b, eid_m) %>%
-  left_join(bridge_new %>% distinct(eid_m, eid_151281),
-            by = "eid_m")
-
-
-olink_44788 <- olink_44788 %>%
-  left_join(map_b_to_151, by = "eid_b")
-olink_44788 <- olink_44788 %>%
-  mutate(eid_151281 = as.numeric(eid_151281)) %>%
-  left_join(cov_add, by = "eid_151281")
-
-
-head(olink_44788)
 library(dplyr)
 library(tidyr)
 
